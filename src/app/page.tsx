@@ -2,7 +2,7 @@ import Logo from "@/components/ui/Logo";
 
 export default function Home() {
   return (
-    <main className="w-screen h-dvh flex justify-center items-center bg-linear-to-b from-[#415AFF] to-[#4758C7] relative">
+    <main className="w-screen h-dvh flex justify-center items-center bg-[#0A2540] relative">
       <span className="text-3xl md:text-6xl font-black text-center italic text-white text-shadow z-10 text-shadow-lg">
         Coming soon...
       </span>
