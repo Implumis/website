@@ -24,6 +24,11 @@ export default function Header() {
               <span>About us</span>
             </Link>
           </li>
+          <li>
+            <Link href="/blog" className="text-xl font-medium">
+              <span>Blog</span>
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
