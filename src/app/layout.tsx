@@ -55,7 +55,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} antialiased bg-[#0A2540]`}>
-      <body className="h-dvh p-2.5 sm:p-4 md:p-8 lg:p-12 xl:p-16">
+      <body
+        className={cn(
+          "p-2.5 sm:p-4 md:p-8 lg:p-12 xl:p-16",
+          "h-[calc(100dvh+2*var(--spacing)*2.5)] sm:h-[calc(100dvh+2*var(--spacing)*4)] md:h-[calc(100dvh+2*var(--spacing)*8)] lg:h-[calc(100dvh+2*var(--spacing)*12)] xl:h-[calc(100dvh+2*var(--spacing)*16)]",
+        )}
+      >
         <div className="h-full border-white border-3 overflow-hidden relative">
           <aside className="absolute inner-body-bg w-full h-full top-0 left-0 opacity-20 z-0" />
           <div className="z-1 h-full relative">
