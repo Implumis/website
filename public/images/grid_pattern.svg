@@ -1,0 +1,45 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_9968_419)">
+<mask id="path-1-inside-1_9968_419" fill="white">
+<path d="M0 0H50V50H0V0Z"/>
+</mask>
+<path d="M50 50V51H51V50H50ZM50 0H49V50H50H51V0H50ZM50 50V49H0V50V51H50V50Z" fill="white" mask="url(#path-1-inside-1_9968_419)"/>
+<mask id="path-3-inside-2_9968_419" fill="white">
+<path d="M50 0H100V50H50V0Z"/>
+</mask>
+<path d="M100 50V51H101V50H100ZM100 0H99V50H100H101V0H100ZM100 50V49H50V50V51H100V50Z" fill="white" mask="url(#path-3-inside-2_9968_419)"/>
+<mask id="path-5-inside-3_9968_419" fill="white">
+<path d="M100 0H150V50H100V0Z"/>
+</mask>
+<path d="M150 50V51H151V50H150ZM150 0H149V50H150H151V0H150ZM150 50V49H100V50V51H150V50Z" fill="white" mask="url(#path-5-inside-3_9968_419)"/>
+<mask id="path-7-inside-4_9968_419" fill="white">
+<path d="M0 50H50V100H0V50Z"/>
+</mask>
+<path d="M50 100V101H51V100H50ZM50 50H49V100H50H51V50H50ZM50 100V99H0V100V101H50V100Z" fill="white" mask="url(#path-7-inside-4_9968_419)"/>
+<mask id="path-9-inside-5_9968_419" fill="white">
+<path d="M50 50H100V100H50V50Z"/>
+</mask>
+<path d="M100 100V101H101V100H100ZM100 50H99V100H100H101V50H100ZM100 100V99H50V100V101H100V100Z" fill="white" mask="url(#path-9-inside-5_9968_419)"/>
+<mask id="path-11-inside-6_9968_419" fill="white">
+<path d="M100 50H150V100H100V50Z"/>
+</mask>
+<path d="M150 100V101H151V100H150ZM150 50H149V100H150H151V50H150ZM150 100V99H100V100V101H150V100Z" fill="white" mask="url(#path-11-inside-6_9968_419)"/>
+<mask id="path-13-inside-7_9968_419" fill="white">
+<path d="M0 100H50V150H0V100Z"/>
+</mask>
+<path d="M50 150V151H51V150H50ZM50 100H49V150H50H51V100H50ZM50 150V149H0V150V151H50V150Z" fill="white" mask="url(#path-13-inside-7_9968_419)"/>
+<mask id="path-15-inside-8_9968_419" fill="white">
+<path d="M50 100H100V150H50V100Z"/>
+</mask>
+<path d="M100 150V151H101V150H100ZM100 100H99V150H100H101V100H100ZM100 150V149H50V150V151H100V150Z" fill="white" mask="url(#path-15-inside-8_9968_419)"/>
+<mask id="path-17-inside-9_9968_419" fill="white">
+<path d="M100 100H150V150H100V100Z"/>
+</mask>
+<path d="M150 150V151H151V150H150ZM150 100H149V150H150H151V100H150ZM150 150V149H100V150V151H150V150Z" fill="white" mask="url(#path-17-inside-9_9968_419)"/>
+</g>
+<defs>
+<clipPath id="clip0_9968_419">
+<rect width="150" height="150" fill="white"/>
+</clipPath>
+</defs>
+</svg>
