@@ -10,10 +10,11 @@ export default function NotFound() {
         </h1>
         <p className="mt-6 text-2xl">We could not find what you requested.</p>
         <Link
-          className="flex items-center gap-2 font-medium text-xl w-max group transition-all hover:brightness-85 ease-in-out duration-250 mt-4"
+          className="flex relative items-center gap-2 font-medium text-2xl w-max group transition-all hover:brightness-85 ease-in-out duration-250 mt-4"
           href="/"
         >
-          <MoveLeft />
+          <MoveLeft className="invisible" />
+          <MoveLeft className="absolute group-hover:-left-1 left-0 transition-all duration-250" />
           <span>Go home</span>
         </Link>
       </div>

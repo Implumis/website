@@ -8,7 +8,7 @@ export default function Home() {
         <hgroup className="font-semibold text-9xl">
           <h1>We make things</h1>
           <h1>
-            That <i>fly</i>.
+            That <i className="text-primary">fly</i>.
           </h1>
         </hgroup>
         <Link
