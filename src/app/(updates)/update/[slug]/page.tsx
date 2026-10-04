@@ -78,7 +78,11 @@ export default async function UpdatePage({ params }: Props) {
 
   const { prev, next } = await getAdjacentUpdate(slug);
 
-  return <main></main>;
+  return (
+    <main className="limit-width">
+      <h1 className="mt-12 text-6xl font-semibold">{metadata.title}</h1>
+    </main>
+  );
 }
 
 //

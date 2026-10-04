@@ -15,7 +15,7 @@ export default function Update({
   return (
     <Link
       href={`/update/${filename}`}
-      className="bg-black/45 hover:bg-black/55 backdrop-blur-md rounded-md p-3 overflow-hidden relative border transition-all duration-250 ease-in-out"
+      className="bg-black/45 hover:bg-black/55 backdrop-blur-md rounded-md p-3 overflow-hidden relative border transition-all duration-250 ease-in-out hover:rotate-[0.7deg]"
     >
       <article>
         <div>
