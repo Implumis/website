@@ -1,13 +1,23 @@
-import Logo from "@/components/ui/Logo";
+import { MoveRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="w-full h-full">
-      <span className="text-3xl w-full md:text-6xl font-black text-center italic text-white text-shadow z-10 text-shadow-lg absolute left-1/2 top-1/2 -translate-1/2">
-        Coming soon...
-      </span>
-      <div className="absolute top-1/2 left-1/2 -translate-1/2 max-w-lg [&_#Geer]:brightness-100 w-[calc(100%-112px)] brightness-70">
-        <Logo className="w-full h-full" />
+    <main className="limit-width">
+      <div className="flex flex-col gap-8 mt-44">
+        <hgroup className="font-semibold text-9xl">
+          <h1>We make things</h1>
+          <h1>
+            That <i>fly</i>.
+          </h1>
+        </hgroup>
+        <Link
+          className="flex items-center gap-2 font-medium text-2xl w-max group transition-all hover:brightness-85 ease-in-out duration-250"
+          href="/updates"
+        >
+          <span>View updates</span>{" "}
+          <MoveRight className="group-hover:ml-1 transition-all ease-in-out duration-250" />
+        </Link>
       </div>
     </main>
   );

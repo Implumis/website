@@ -94,9 +94,13 @@
 }
 
 @layer components {
-    .inner-body-bg {
+    .grid-bg {
         @apply bg-repeat bg-[url('/images/grid_pattern.svg')] pointer-events-none;
         background-size: 7% auto;
         background-position: center;
+    }
+
+    .limit-width {
+        @apply max-w-334 w-full mx-auto;
     }
 }
