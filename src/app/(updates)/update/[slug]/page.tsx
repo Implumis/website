@@ -1,13 +1,12 @@
 import {
   getAdjacentUpdate,
+  getUpdateMetadata,
   getUpdateSlugs,
   MDXMetadata,
   updateExists,
 } from "@/lib/server/mdx";
-import matter from "gray-matter";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import fs from "fs";
 
 export async function generateStaticParams() {
   const slugs = getUpdateSlugs();
@@ -68,14 +67,12 @@ export default async function UpdatePage({ params }: Props) {
     notFound();
   }
 
-  const contentMetadata = matter(
-    fs.readFileSync(`@/app/(updates)/update/[slug]/${slug}.mdx`, "utf8"),
-  );
+  const post = await import(`@/app/(updates)/update/[slug]/${slug}.mdx`);
+  const MDXContent = post.default;
+  const metadata: MDXMetadata = post.metadata;
+  const contentMetadata = getUpdateMetadata(slug);
 
-  if (
-    contentMetadata.data.status === "DRAFT" &&
-    process.env.NODE_ENV === "production"
-  ) {
+  if (metadata.status === "DRAFT" && process.env.NODE_ENV === "production") {
     notFound();
   }
 

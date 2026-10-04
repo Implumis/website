@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { compareDesc, parseISO } from "date-fns";
@@ -48,6 +47,53 @@ export function calculateReadingTime(
   return `${minutes} min read`;
 }
 
+export function parseMetadata(content: string): Partial<MDXMetadata> {
+  const match = content.match(/export const metadata = \s*\{([\s\S]*?)\};/);
+  if (!match) return {};
+
+  const objStr = match[1];
+  const result: Record<string, unknown> = {};
+
+  const cleanObjStr = objStr
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/\/\/.*$/gm, "");
+
+  // Matches object keys and captures their values (supporting double, single, and backtick quoted strings with escaped chars, arrays, and primitive literals)
+  const regex =
+    /\b([a-zA-Z0-9_]+)\s*:\s*("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`|\[[\s\S]*?\]|null|true|false|\d+)/g;
+
+  let m;
+  while ((m = regex.exec(cleanObjStr)) !== null) {
+    const key = m[1];
+    const valStr = m[2].trim();
+
+    if (valStr === "null") {
+      result[key] = null;
+    } else if (valStr === "true") {
+      result[key] = true;
+    } else if (valStr === "false") {
+      result[key] = false;
+    } else if (
+      (valStr.startsWith('"') && valStr.endsWith('"')) ||
+      (valStr.startsWith("'") && valStr.endsWith("'")) ||
+      (valStr.startsWith("`") && valStr.endsWith("`"))
+    ) {
+      result[key] = valStr.slice(1, -1);
+    } else if (valStr.startsWith("[") && valStr.endsWith("]")) {
+      try {
+        const jsonArrStr = valStr.replace(/'((?:[^'\\]|\\.)*)'/g, '"$1"');
+        result[key] = JSON.parse(jsonArrStr);
+      } catch {
+        result[key] = [];
+      }
+    } else {
+      result[key] = valStr;
+    }
+  }
+
+  return result;
+}
+
 export function readMetadataFromFile(
   mdxPath: string,
   slug: string,
@@ -56,10 +102,10 @@ export function readMetadataFromFile(
 
   try {
     const fileContent = fs.readFileSync(mdxPath, "utf-8");
-    const metadata = matter(fileContent);
+    const metadata = parseMetadata(fileContent);
     const readingTime = calculateReadingTime(fileContent);
 
-    return { ...metadata.data, slug, readingTime } as MDXMetadata;
+    return { ...metadata, slug, readingTime } as MDXMetadata;
   } catch (err) {
     console.error(`Error reading metadata from ${mdxPath}:`, err);
     return null;
