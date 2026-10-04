@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="limit-width">
-      <div className="flex flex-col gap-8 mt-44">
+      <div className="flex flex-col gap-8 mt-36">
         <hgroup className="font-semibold text-9xl">
           <h1>We make things</h1>
           <h1>

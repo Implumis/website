@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <main className="flex limit-width items-center">
-      <div className="mt-44">
+      <div className="mt-12">
         <h1 className="text-6xl font-semibold">
           <i>Quem quaeritis?</i>
         </h1>
