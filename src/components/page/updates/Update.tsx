@@ -35,7 +35,7 @@ export default function Update({
             )}
           </AspectRatio>
           <span className="font-medium text-2xl block mt-1.5">{title}</span>
-          <span className="block mt-0.5">
+          <span className="block mt-0.5 text-white/80">
             Created on {formatUTC(createdAt)}
           </span>
           <p className="text-xl mt-1 font-light line-clamp-2 min-h-[2lh]">

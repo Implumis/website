@@ -101,6 +101,6 @@
     }
 
     .limit-width {
-        @apply max-w-310 w-full mx-auto;
+        @apply max-w-319 w-full mx-auto px-2.5 sm:px-3 md:px-6;
     }
 }
