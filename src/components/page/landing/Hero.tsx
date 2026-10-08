@@ -6,8 +6,8 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="mt-36">
-      <hgroup className="font-semibold text-9xl">
+    <div className="mt-8 md:mt-20 lg:mt-30 xl:mt-36">
+      <hgroup className="font-semibold text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function Hero() {
         transition={{ duration: 0.5, ease: [0, 0.55, 0.45, 1], delay: 0.14 }}
       >
         <Link
-          className="flex mt-5 items-center gap-2 font-medium text-2xl w-max group transition-all hover:brightness-85 ease-in-out duration-250"
+          className="flex mt-5 items-center gap-2 font-medium sm:text-xl md:text-2xl w-max group transition-all hover:brightness-85 ease-in-out duration-250"
           href="/updates"
         >
           <span>View updates</span>{" "}

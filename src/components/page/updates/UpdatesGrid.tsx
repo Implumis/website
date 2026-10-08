@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 export default function UpdatesGrid({ updates }: UpdatesGridProps) {
   return (
-    <div className="grid grid-cols-3 gap-4 mt-8">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 lg:mt-7 xl:mt-8">
       {updates.map((update, index) => (
         <motion.div
           className="flex"

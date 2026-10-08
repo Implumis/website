@@ -22,15 +22,14 @@ export default function Update({
           <AspectRatio
             ratio={16 / 9}
             style={usesBgColor ? { backgroundColor: background } : undefined}
-            className="rounded-md overflow-hidden relative"
+            className="rounded-md overflow-hidden relative w-full"
           >
             {!usesBgColor && background && (
               <Image
                 alt="Thumbnail background"
                 className="absolute left-0 top-0"
                 src={background}
-                width={480}
-                height={270}
+                fill
               />
             )}
           </AspectRatio>
@@ -38,7 +37,7 @@ export default function Update({
           <span className="block mt-0.5 text-white/80">
             Created on {formatUTC(createdAt)}
           </span>
-          <p className="text-xl mt-1 font-light line-clamp-2 min-h-[2lh]">
+          <p className="text-lg md:text-xl mt-1 font-light line-clamp-2 min-h-[2lh]">
             {description}
           </p>
         </div>
