@@ -1,4 +1,5 @@
-import Update from "@/components/page/updates/Update";
+import Hero from "@/components/page/updates/Hero";
+import UpdatesGrid from "@/components/page/updates/UpdatesGrid";
 import { getAllUpdatesMetadata } from "@/lib/server/mdx";
 import { Metadata } from "next";
 
@@ -25,24 +26,8 @@ export default async function Updates() {
 
   return (
     <main className="limit-width">
-      <div className="mt-12">
-        <h1 className="text-6xl font-semibold">Updates</h1>
-        <p className="text-2xl mt-5">
-          Read about our latest and past progress.
-        </p>
-      </div>
-      <div className="grid grid-cols-3 mt-8">
-        {updates.map((update, index) => (
-          <Update
-            key={`update-${index}`}
-            filename={update.slug}
-            background={update.background}
-            title={update.title}
-            createdAt={new Date(update.createdAt)}
-            description={update.description}
-          />
-        ))}
-      </div>
+      <Hero />
+      <UpdatesGrid updates={updates} />
     </main>
   );
 }

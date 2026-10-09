@@ -15,30 +15,29 @@ export default function Update({
   return (
     <Link
       href={`/update/${filename}`}
-      className="bg-black/45 hover:bg-black/55 backdrop-blur-md rounded-md p-3 overflow-hidden relative border transition-all duration-250 ease-in-out hover:rotate-[0.7deg]"
+      className="bg-black/45 hover:bg-black/55 w-full backdrop-blur-md rounded-md p-3 overflow-hidden relative border transition-all duration-250 ease-in-out hover:rotate-[0.7deg]"
     >
       <article>
         <div>
           <AspectRatio
             ratio={16 / 9}
             style={usesBgColor ? { backgroundColor: background } : undefined}
-            className="rounded-md overflow-hidden relative"
+            className="rounded-md overflow-hidden relative w-full"
           >
             {!usesBgColor && background && (
               <Image
                 alt="Thumbnail background"
                 className="absolute left-0 top-0"
                 src={background}
-                width={480}
-                height={270}
+                fill
               />
             )}
           </AspectRatio>
           <span className="font-medium text-2xl block mt-1.5">{title}</span>
-          <span className="block mt-0.5">
+          <span className="block mt-0.5 text-white/80">
             Created on {formatUTC(createdAt)}
           </span>
-          <p className="text-xl mt-1 font-light line-clamp-2 min-h-[2lh]">
+          <p className="text-lg md:text-xl mt-1 font-light line-clamp-2 min-h-[2lh]">
             {description}
           </p>
         </div>

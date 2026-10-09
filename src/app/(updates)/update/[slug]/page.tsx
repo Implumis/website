@@ -7,6 +7,8 @@ import {
 } from "@/lib/server/mdx";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Hero from "@/components/page/update/Hero";
+import Corner from "@/components/ui/Corner";
 
 export async function generateStaticParams() {
   const slugs = getUpdateSlugs();
@@ -80,7 +82,18 @@ export default async function UpdatePage({ params }: Props) {
 
   return (
     <main className="limit-width">
-      <h1 className="mt-12 text-6xl font-semibold">{metadata.title}</h1>
+      <Hero {...metadata} />
+      <section className="md:p-14 relative mt-3">
+        <div className="max-w-240 w-full mx-auto">
+          <MDXContent />
+        </div>
+        <aside className="md:block hidden">
+          <Corner className="absolute brightness-90 size-13 top-5.5 left-5.5" />
+          <Corner className="absolute brightness-90 size-13 top-5.5 right-5.5 rotate-90" />
+          <Corner className="absolute brightness-90 size-13 bottom-5.5 left-5.5 -rotate-90" />
+          <Corner className="absolute brightness-90 size-13 bottom-5.5 right-5.5 -rotate-180" />
+        </aside>
+      </section>
     </main>
   );
 }
