@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
+import { easeOutCirc } from "@/lib/client/motion";
 
 export default function Hero() {
   return (
@@ -11,18 +12,14 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0, 0.55, 0.45, 1] }}
+          transition={easeOutCirc()}
         >
           We make things
         </motion.h1>
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.5,
-            ease: [0, 0.55, 0.45, 1],
-            delay: 0.09,
-          }}
+          transition={easeOutCirc(0.09)}
         >
           That <i className="text-primary">fly</i>.
         </motion.h1>
@@ -30,7 +27,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, ease: [0, 0.55, 0.45, 1], delay: 0.14 }}
+        transition={easeOutCirc(0.14)}
       >
         <Link
           className="flex mt-5 items-center gap-2 font-medium sm:text-xl md:text-2xl w-max group transition-all hover:brightness-85 ease-in-out duration-250"

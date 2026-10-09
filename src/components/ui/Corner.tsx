@@ -1,19 +1,17 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "motion/react";
+import { easeOutCirc } from "@/lib/client/motion";
+
+const pathVariants = {
+  hidden: { pathLength: 0 },
+  visible: {
+    pathLength: 1,
+    transition: easeOutCirc(0, 0.3),
+  },
+};
 
 export default function Corner({ className }: CornerProps) {
-  const pathVariants: Variants = {
-    hidden: { pathLength: 0 },
-    visible: {
-      pathLength: 1,
-      transition: {
-        duration: 0.3,
-        ease: [0, 0.55, 0.45, 1],
-      },
-    },
-  };
-
   return (
     <svg
       width="127"

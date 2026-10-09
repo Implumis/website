@@ -2,6 +2,7 @@
 
 import Update from "./Update";
 import { motion } from "motion/react";
+import { easeOutCirc } from "@/lib/client/motion";
 
 export default function UpdatesGrid({ updates }: UpdatesGridProps) {
   return (
@@ -12,11 +13,7 @@ export default function UpdatesGrid({ updates }: UpdatesGridProps) {
           key={`update-${index}`}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{
-            duration: 0.35,
-            ease: [0, 0.55, 0.45, 1],
-            delay: 0.05 + (index + 1) * 0.05,
-          }}
+          transition={easeOutCirc(0.05 + (index + 1) * 0.05, 0.35)}
         >
           <Update
             filename={update.slug}

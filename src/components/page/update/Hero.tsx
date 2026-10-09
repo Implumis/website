@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { formatUTC } from "@/lib/client/utils";
 import Image from "next/image";
+import { easeOutCirc } from "@/lib/client/motion";
 
 export default function Hero({ background, createdAt, title }: HeroProps) {
   const usesBgColor = background && background[0] === "#";
@@ -13,7 +14,7 @@ export default function Hero({ background, createdAt, title }: HeroProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, ease: [0, 0.55, 0.45, 1] }}
+          transition={easeOutCirc()}
       >
         <AspectRatio
           ratio={16 / 9}
@@ -35,7 +36,7 @@ export default function Hero({ background, createdAt, title }: HeroProps) {
           className="text-4xl md:text-6xl font-semibold"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0, 0.55, 0.45, 1], delay: 0.05 }}
+          transition={easeOutCirc(0.05)}
         >
           {title}
         </motion.h1>
@@ -43,7 +44,7 @@ export default function Hero({ background, createdAt, title }: HeroProps) {
           className="block mt-0.5 md:text-lg font-medium text-white/80"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0, 0.55, 0.45, 1], delay: 0.1 }}
+          transition={easeOutCirc(0.1)}
         >
           Created on {formatUTC(new Date(createdAt))}
         </motion.span>
