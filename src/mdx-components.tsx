@@ -2,8 +2,6 @@ import type { MDXComponents } from "mdx/types";
 import ImageViewer from "./components/ui/ImageViewer";
 import { cn, parseImageAlt } from "./lib/client/utils";
 
-const components: MDXComponents = {};
-
 export function useMDXComponents(): MDXComponents {
   return {
     h2: ({ children }) => (
@@ -81,6 +79,5 @@ export function useMDXComponents(): MDXComponents {
         </span>
       );
     },
-    ...components,
   };
 }
