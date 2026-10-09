@@ -1,4 +1,19 @@
+"use client";
+
+import { motion, Variants } from "framer-motion";
+
 export default function Corner({ className }: CornerProps) {
+  const pathVariants: Variants = {
+    hidden: { pathLength: 0 },
+    visible: {
+      pathLength: 1,
+      transition: {
+        duration: 0.3,
+        ease: [0, 0.55, 0.45, 1],
+      },
+    },
+  };
+
   return (
     <svg
       width="127"
@@ -9,8 +24,22 @@ export default function Corner({ className }: CornerProps) {
       className={className}
     >
       <g clipPath="url(#clip0_10055_51)">
-        <path d="M0 7C0 3.134 3.13401 0 7 0V0V127H0V7Z" fill="white" />
-        <path d="M0 7V7C0 3.13401 3.13401 0 7 0L127 0V7L0 7Z" fill="white" />
+        <motion.path
+          d="M 3.5 0 V 127"
+          stroke="white"
+          strokeWidth="7"
+          variants={pathVariants}
+          initial="hidden"
+          animate="visible"
+        />
+        <motion.path
+          d="M 0 3.5 H 127"
+          stroke="white"
+          strokeWidth="7"
+          variants={pathVariants}
+          initial="hidden"
+          animate="visible"
+        />
       </g>
       <defs>
         <clipPath id="clip0_10055_51">
