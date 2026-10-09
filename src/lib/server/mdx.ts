@@ -5,14 +5,18 @@ import { unstable_cache } from "next/cache";
 import { compareDesc, parseISO } from "date-fns";
 
 //
+// [SECTION] Defines
+//
+
+const UPDATES_DIR = "src/app/(updates)/update/[slug]";
+
+//
 // [SECTION] Functions
 //
 
+
 export function getUpdateSlugs(): string[] {
-  const contentDir = path.join(
-    process.cwd(),
-    "src/app/(updates)/update/[slug]",
-  );
+  const contentDir = path.join(process.cwd(), UPDATES_DIR);
 
   if (!fs.existsSync(contentDir)) {
     return [];
@@ -26,7 +30,7 @@ export function getUpdateSlugs(): string[] {
 
 export function updateExists(slug: string): boolean {
   return fs.existsSync(
-    path.join(process.cwd(), "src/app/(updates)/update/[slug]", `${slug}.mdx`),
+    path.join(process.cwd(), UPDATES_DIR, `${slug}.mdx`),
   );
 }
 
@@ -112,37 +116,26 @@ export function readMetadataFromFile(
   }
 }
 
-export const getUpdateMetadata = cache((slug: string): MDXMetadata | null => {
-  return readMetadataFromFile(
-    path.join(process.cwd(), "src/app/(updates)/update/[slug]", `${slug}.mdx`),
-    slug,
-  );
-});
+export function isPublished(metadata: MDXMetadata): boolean {
+  return process.env.NODE_ENV !== "production" || metadata.status !== "DRAFT";
+}
 
 export const getAllUpdatesMetadata = cache(async (): Promise<MDXMetadata[]> => {
   return unstable_cache(
     async () => {
-      const slugs = getUpdateSlugs();
-      const contentDir = path.join(
-        process.cwd(),
-        "src/app/(updates)/update/[slug]",
-      );
+      const contentDir = path.join(process.cwd(), UPDATES_DIR);
 
-      const all = slugs
-        .map((slug) => {
-          const mdxPath = path.join(contentDir, `${slug}.mdx`);
-          return readMetadataFromFile(mdxPath, slug);
-        })
+      const all = getUpdateSlugs()
+        .map((slug) =>
+          readMetadataFromFile(path.join(contentDir, `${slug}.mdx`), slug),
+        )
         .filter((item): item is MDXMetadata => item !== null);
 
-      const filtered =
-        process.env.NODE_ENV === "production"
-          ? all.filter((item) => item.status !== "DRAFT")
-          : all;
-
-      return filtered.sort((a, b) =>
-        compareDesc(parseISO(a.createdAt), parseISO(b.createdAt)),
-      );
+      return all
+        .filter(isPublished)
+        .sort((a, b) =>
+          compareDesc(parseISO(a.createdAt), parseISO(b.createdAt)),
+        );
     },
     [`all-content-metadata-updates`],
     {
@@ -172,7 +165,6 @@ export interface MDXMetadata {
   title: string;
   description: string;
   authors: string[];
-  background?: string;
   slug: string;
   readingTime: string;
   createdAt: string;

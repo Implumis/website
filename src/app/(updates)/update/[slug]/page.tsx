@@ -1,7 +1,7 @@
 import {
   getAdjacentUpdate,
-  getUpdateMetadata,
   getUpdateSlugs,
+  isPublished,
   MDXMetadata,
   updateExists,
 } from "@/lib/server/mdx";
@@ -73,9 +73,8 @@ export default async function UpdatePage({ params }: Props) {
   const post = await import(`@/app/(updates)/update/[slug]/${slug}.mdx`);
   const MDXContent = post.default;
   const metadata: MDXMetadata = post.metadata;
-  const contentMetadata = getUpdateMetadata(slug);
 
-  if (metadata.status === "DRAFT" && process.env.NODE_ENV === "production") {
+  if (!isPublished(metadata)) {
     notFound();
   }
 
