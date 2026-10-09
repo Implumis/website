@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Hero from "@/components/page/update/Hero";
 import Corner from "@/components/ui/Corner";
+import { AUTHORS } from "@/lib/server/authors";
 
 export async function generateStaticParams() {
   const slugs = getUpdateSlugs();
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: metadata.title,
     description: metadata.description,
-    authors: [{ name: "Charles" }, { name: "Eliott" }],
+    authors: metadata.authors.map((author) => AUTHORS[author]),
     alternates: {
       canonical: `/project/${slug}`,
     },
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ],
       publishedTime: metadata.createdAt,
       modifiedTime: metadata.updatedAt,
-      authors: ["Charles", "Eliott"],
+      authors: metadata.authors.map((author) => AUTHORS[author].name),
     },
     twitter: {
       card: "summary_large_image",

@@ -171,6 +171,7 @@ export async function getAdjacentUpdate(
 export interface MDXMetadata {
   title: string;
   description: string;
+  authors: string[];
   background?: string;
   slug: string;
   readingTime: string;

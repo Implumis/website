@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import { AUTHORS } from "@/lib/server/authors";
 
 const inter = Inter({
   weight: ["400", "500", "700"],
@@ -38,15 +39,7 @@ export const metadata: Metadata = {
     "mechanical engineering",
     "drone",
   ],
-  authors: [
-    {
-      name: "Charles",
-      url: "https://axxowastaken.me",
-    },
-    {
-      name: "Éliott",
-    },
-  ],
+  authors: Object.values(AUTHORS),
   creator: "Charles",
 };
 
