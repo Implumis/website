@@ -19,7 +19,7 @@ export default function UpdatesGrid({ updates }: UpdatesGridProps) {
             filename={update.slug}
             background={update.background}
             title={update.title}
-            createdAt={new Date(update.createdAt)}
+            createdAt={update.createdAt}
             description={update.description}
           />
         </motion.div>

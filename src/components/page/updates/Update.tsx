@@ -51,6 +51,6 @@ interface UpdateProps {
   filename: string;
   background?: string;
   title: string;
-  createdAt: Date;
+  createdAt: string;
   description: string;
 }

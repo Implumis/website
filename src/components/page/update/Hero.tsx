@@ -46,7 +46,7 @@ export default function Hero({ background, createdAt, title }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={easeOutCirc(0.1)}
         >
-          Created on {formatUTC(new Date(createdAt))}
+          Created on {formatUTC(createdAt)}
         </motion.span>
       </div>
     </div>
