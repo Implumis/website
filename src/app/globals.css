@@ -103,4 +103,8 @@
     .limit-width {
         @apply max-w-319 w-full mx-auto px-2.5 sm:px-3 md:px-6;
     }
+
+    .inline-anchor {
+        @apply underline text-[#317FFB] hover:brightness-85 transition-all duration-250 ease-in-out;
+    }
 }
