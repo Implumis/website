@@ -83,7 +83,7 @@ export default async function UpdatePage({ params }: Props) {
   return (
     <main className="limit-width">
       <Hero {...metadata} />
-      <section className="md:p-14 relative mt-3">
+      <section className="md:p-14 relative my-3">
         <div className="max-w-240 w-full mx-auto">
           <MDXContent />
         </div>
