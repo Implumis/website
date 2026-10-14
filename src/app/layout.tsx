@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import { AUTHORS } from "@/lib/server/authors";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
   weight: ["400", "500", "700"],
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

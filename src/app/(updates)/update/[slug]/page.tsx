@@ -13,6 +13,7 @@ import { AUTHORS } from "@/lib/server/authors";
 import { cn } from "cn";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export async function generateStaticParams() {
   const slugs = getUpdateSlugs();
@@ -137,7 +138,7 @@ export default async function UpdatePage({ params }: Props) {
                 </div>
               </div>
               <ChevronRight className="shrink-0 size-7" />
-              <div className="absolute w-full h-full grid-bg top-0 left-0 -z-10 opacity-12" />
+              <aside className="absolute w-full h-full grid-bg top-0 left-0 -z-10 opacity-12" />
             </Link>
           </div>
         </div>
@@ -148,6 +149,13 @@ export default async function UpdatePage({ params }: Props) {
           <Corner className="absolute brightness-90 size-13 bottom-5.5 right-5.5 -rotate-180" />
         </aside>
       </section>
+      <div className="bg-black/45 backdrop-blur-md flex flex-col items-center gap-4 rounded-md px-3 py-8 overflow-hidden relative border transition-all duration-250 ease-in-out text-center">
+        <span className="text-4xl font-semibold">Interested?</span>
+        <p>Consider becoming a sponsor!</p>
+        <Button className="w-min text-black px-4 py-5" disabled>
+          We don&apos;t take sponsors yet.
+        </Button>
+      </div>
     </main>
   );
 }
