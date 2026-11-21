@@ -47,9 +47,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${inter.variable} antialiased bg-[#0A2540]`}>
-      <body>
+      <body className="min-h-dvh flex flex-col">
         <Header />
-        {children}
+        <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
       </body>
     </html>
