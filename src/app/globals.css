@@ -84,9 +84,11 @@
     * {
         @apply border-border outline-ring/50;
     }
+
     body {
         @apply bg-background text-foreground;
     }
+
     button:not(:disabled),
     [role="button"]:not(:disabled) {
         cursor: pointer;
@@ -101,7 +103,7 @@
     }
 
     .limit-width {
-        @apply max-w-319 w-full mx-auto px-2.5 sm:px-3 md:px-6;
+        @apply max-w-300 w-full mx-auto px-2.5 sm:px-3 md:px-6;
     }
 
     .inline-anchor {
