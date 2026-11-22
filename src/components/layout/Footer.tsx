@@ -3,7 +3,7 @@ import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
   return (
-    <footer className="limit-width pb-16 mt-16">
+    <footer className="limit-width pb-10 mt-12 md:pb-16 md:mt-16">
       <div className="flex items-center justify-between">
         <Link
           href="/"
