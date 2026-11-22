@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { easeOutCirc } from "@/lib/client/motion";
 
@@ -17,5 +18,5 @@ export default function H2({ children }: H2Props) {
 }
 
 interface H2Props {
-  children: React.Node;
+  children: ReactNode;
 }

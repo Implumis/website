@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion } from "motion/react";
 import { easeOutCirc } from "@/lib/client/motion";
 
@@ -17,5 +18,5 @@ export default function P({ children }: PProps) {
 }
 
 interface PProps {
-  children: React.Node;
+  children: ReactNode;
 }
