@@ -7,7 +7,7 @@ import { easeOutCirc } from "@/lib/client/motion";
 
 export default function Hero() {
   return (
-    <div className="mt-8 md:mt-20 lg:mt-30 xl:mt-36">
+    <div className="mt-8 md:mt-16 2xl:mt-36">
       <hgroup className="font-semibold text-5xl sm:text-7xl md:text-8xl lg:text-9xl">
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
